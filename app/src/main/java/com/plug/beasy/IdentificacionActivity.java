@@ -15,6 +15,7 @@ import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -155,24 +156,73 @@ public class IdentificacionActivity extends AppCompatActivity {
         ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithResourceId(R.drawable.carnet_oskar2).build();
         dialog.setContentView(R.layout.carnet_detalle);
         ivImagen=(SimpleDraweeView)dialog.findViewById(R.id.ivCarnet);
-
-        dialog.getWindow().setLayout(700,800); //Primero es ancho, el segundo es el alto
+        final EditText etPass=(EditText)dialog.findViewById(R.id.etPass);
+        final Button btnVerificar=(Button)dialog.findViewById(R.id.btnVerificar);
+        final Button btnCancelar=(Button)dialog.findViewById(R.id.btnCancelar);
+        dialog.getWindow().setLayout(700,1000); //Primero es ancho, el segundo es el alto
         ivImagen.setImageURI(Uri.parse("res:/"+R.drawable.carnet_oskar2));
         //ivImagen.setImageURI(imageRequest.getSourceUri());
         //Toast.makeText(this, "Entramos otra vez", Toast.LENGTH_SHORT).show();
+        btnVerificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String contraseña=etPass.getText().toString();
+                if(contraseña.isEmpty()){
+                    etPass.setError("El campo es requerido");
+                    return;
+                }
+                else if(contraseña.equals("2014201901")){
+                    Intent intent=new Intent(IdentificacionActivity.this,Wifi_Activity1.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(IdentificacionActivity.this, "Error en autenticacion", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    dialog.dismiss();
+            }
+        });
         dialog.show();
     }
-
     private void identificar2(){
         final Dialog dialog=new Dialog(IdentificacionActivity.this);
         ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithResourceId(R.drawable.carnet_oskar2).build();
         dialog.setContentView(R.layout.carnet_detalle);
         ivImagen=(SimpleDraweeView)dialog.findViewById(R.id.ivCarnet);
-
-        dialog.getWindow().setLayout(700,800); //Primero es ancho, el segundo es el alto
+        final EditText etPass=(EditText)dialog.findViewById(R.id.etPass);
+        final Button btnVerificar=(Button)dialog.findViewById(R.id.btnVerificar);
+        final Button btnCancelar=(Button)dialog.findViewById(R.id.btnCancelar);
+        dialog.getWindow().setLayout(700,1000); //Primero es ancho, el segundo es el alto
         ivImagen.setImageURI(Uri.parse("res:/"+R.drawable.carnet_israel));
         //ivImagen.setImageURI(imageRequest.getSourceUri());
         //Toast.makeText(this, "Entramos otra vez", Toast.LENGTH_SHORT).show();
+        btnVerificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String contraseña=etPass.getText().toString();
+                if(contraseña.isEmpty()){
+                    etPass.setError("El campo es requerido");
+                    return;
+                }
+                else if(contraseña.equals("123456")){
+                    Intent intent=new Intent(IdentificacionActivity.this,Wifi_Activity1.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(IdentificacionActivity.this, "Error en autenticacion", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
         dialog.show();
     }
 
@@ -181,14 +231,36 @@ public class IdentificacionActivity extends AppCompatActivity {
         ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithResourceId(R.drawable.carnet_oskar2).build();
         dialog.setContentView(R.layout.carnet_detalle);
         ivImagen=(SimpleDraweeView)dialog.findViewById(R.id.ivCarnet);
-
-        dialog.getWindow().setLayout(700,800); //Primero es ancho, el segundo es el alto
+        final EditText etPass=(EditText)dialog.findViewById(R.id.etPass);
+        final Button btnVerificar=(Button)dialog.findViewById(R.id.btnVerificar);
+        final Button btnCancelar=(Button)dialog.findViewById(R.id.btnCancelar);
+        dialog.getWindow().setLayout(700,1000); //Primero es ancho, el segundo es el alto
         ivImagen.setImageURI(Uri.parse("res:/"+R.drawable.carnet_salazar));
         //ivImagen.setImageURI(imageRequest.getSourceUri());
         //Toast.makeText(this, "Entramos otra vez", Toast.LENGTH_SHORT).show();
+        btnVerificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String contraseña=etPass.getText().toString();
+                if(contraseña.isEmpty()){
+                    etPass.setError("El campo es requerido");
+                    return;
+                }
+                else if(contraseña.equals("654321")){
+                    Intent intent=new Intent(IdentificacionActivity.this,Wifi_Activity1.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(IdentificacionActivity.this, "Error en autenticacion", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
         dialog.show();
     }
-
-
-
 }
