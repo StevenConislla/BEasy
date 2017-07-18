@@ -91,6 +91,8 @@ public class IdentificacionActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         final String A="Alumno_A";
+        final String B="Alumno_B";
+        final String C="Alumno_C";
         final String UURLCARNET;
         if (result != null) {
             if (result.getContents() == null) {
@@ -117,6 +119,28 @@ public class IdentificacionActivity extends AppCompatActivity {
                     //AlertDialog alertDialog = builder.create();
                     //alertDialog.show();
                 }
+                else if(UURLCARNET.equals(B)){
+                    //AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    Toast.makeText(this, "Alumno_B reconocido", Toast.LENGTH_LONG).show();
+                    Log.i("TAG","Hola2");
+                    identificar2();
+                    //builder.setTitle("Verificacion de identidad");
+                    //builder.setMessage("Hola! " + result.getContents() + "\n" + "Datos: ");
+                    //ivImagen.setImageURI(Uri.parse("http://2.bp.blogspot.com/-T7fUDGa1KUc/TbCb2o_7HXI/AAAAAAAABXs/n2OvUKOIPNk/s1600/estado.jpg"));
+                    //AlertDialog alertDialog = builder.create();
+                    //alertDialog.show();
+                }
+                else if(UURLCARNET.equals(C)){
+                    //AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    Toast.makeText(this, "Alumno_C reconocido", Toast.LENGTH_LONG).show();
+                    Log.i("TAG","Hola3");
+                    identificar3();
+                    //builder.setTitle("Verificacion de identidad");
+                    //builder.setMessage("Hola! " + result.getContents() + "\n" + "Datos: ");
+                    //ivImagen.setImageURI(Uri.parse("http://2.bp.blogspot.com/-T7fUDGa1KUc/TbCb2o_7HXI/AAAAAAAABXs/n2OvUKOIPNk/s1600/estado.jpg"));
+                    //AlertDialog alertDialog = builder.create();
+                    //alertDialog.show();
+                }
                 textViewQRD.setText(result.getContents());
                 //Log.i("TAG","No_entro");
                 //Log.i("TAG",UURLCARNET);
@@ -134,6 +158,32 @@ public class IdentificacionActivity extends AppCompatActivity {
 
         dialog.getWindow().setLayout(700,800); //Primero es ancho, el segundo es el alto
         ivImagen.setImageURI(Uri.parse("res:/"+R.drawable.carnet_oskar2));
+        //ivImagen.setImageURI(imageRequest.getSourceUri());
+        //Toast.makeText(this, "Entramos otra vez", Toast.LENGTH_SHORT).show();
+        dialog.show();
+    }
+
+    private void identificar2(){
+        final Dialog dialog=new Dialog(IdentificacionActivity.this);
+        ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithResourceId(R.drawable.carnet_oskar2).build();
+        dialog.setContentView(R.layout.carnet_detalle);
+        ivImagen=(SimpleDraweeView)dialog.findViewById(R.id.ivCarnet);
+
+        dialog.getWindow().setLayout(700,800); //Primero es ancho, el segundo es el alto
+        ivImagen.setImageURI(Uri.parse("res:/"+R.drawable.carnet_israel));
+        //ivImagen.setImageURI(imageRequest.getSourceUri());
+        //Toast.makeText(this, "Entramos otra vez", Toast.LENGTH_SHORT).show();
+        dialog.show();
+    }
+
+    private void identificar3(){
+        final Dialog dialog=new Dialog(IdentificacionActivity.this);
+        ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithResourceId(R.drawable.carnet_oskar2).build();
+        dialog.setContentView(R.layout.carnet_detalle);
+        ivImagen=(SimpleDraweeView)dialog.findViewById(R.id.ivCarnet);
+
+        dialog.getWindow().setLayout(700,800); //Primero es ancho, el segundo es el alto
+        ivImagen.setImageURI(Uri.parse("res:/"+R.drawable.carnet_salazar));
         //ivImagen.setImageURI(imageRequest.getSourceUri());
         //Toast.makeText(this, "Entramos otra vez", Toast.LENGTH_SHORT).show();
         dialog.show();
