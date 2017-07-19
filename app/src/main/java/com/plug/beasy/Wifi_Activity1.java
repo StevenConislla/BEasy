@@ -36,7 +36,7 @@ public final static String PREF_IP = "PREF_IP_ADDRESS";
 public final static String PREF_PORT = "PREF_PORT_NUMBER";
 // declare buttons and text inputs
 private Button buttonPin11,buttonPin12,buttonPin13;
-private EditText editTextIPAddress, editTextPortNumber;
+//private EditText editTextIPAddress, editTextPortNumber;
         // shared preferences objects used to save the IP address and port so that the user doesn't have to
         // type them next time he/she opens the app.
         SharedPreferences.Editor editor;
@@ -56,8 +56,8 @@ protected void onCreate(Bundle savedInstanceState) {
         buttonPin13 = (Button)findViewById(R.id.buttonPin13);
 
         // assign text inputs
-        editTextIPAddress = (EditText)findViewById(R.id.editTextIPAddress);
-        editTextPortNumber = (EditText)findViewById(R.id.editTextPortNumber);
+        //editTextIPAddress = (EditText)findViewById(R.id.editTextIPAddress);
+        //editTextPortNumber = (EditText)findViewById(R.id.editTextPortNumber);
 
         // set button listener (this class)
         buttonPin11.setOnClickListener(this);
@@ -66,23 +66,25 @@ protected void onCreate(Bundle savedInstanceState) {
 
         // get the IP address and port number from the last time the user used the app,
         // put an empty string "" is this is the first time.
-        editTextIPAddress.setText(sharedPreferences.getString(PREF_IP,""));
-        editTextPortNumber.setText(sharedPreferences.getString(PREF_PORT,""));
+        //editTextIPAddress.setText(sharedPreferences.getString(PREF_IP,""));
+        //editTextPortNumber.setText(sharedPreferences.getString(PREF_PORT,""));
         }
 
 
 @Override
 public void onClick(View view) {
 
-        // get the pin number
-        String parameterValue = "";
-        // get the ip address
-        String ipAddress = editTextIPAddress.getText().toString().trim();
-        // get the port number
-        String portNumber = editTextPortNumber.getText().toString().trim();
+    // get the pin number
+    String parameterValue = "";
+    // get the ip address
+    String adress="192.168.0.21";
+    String number="80";
 
+    String ipAddress = adress.toString().trim();
+    // get the port number
+    String portNumber = number.toString().trim();
 
-        // save the IP address and port for the next time the app is used
+    // save the IP address and port for the next time the app is used
         editor.putString(PREF_IP,ipAddress); // set the ip address value to save
         editor.putString(PREF_PORT,portNumber); // set the port number to save
         editor.commit(); // save the IP and PORT
