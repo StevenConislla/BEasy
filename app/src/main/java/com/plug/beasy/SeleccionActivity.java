@@ -240,8 +240,7 @@ public class SeleccionActivity extends AppCompatActivity {
                 msg("Conexión Fallida");
                 finish();
             }
-            else
-            {
+            else            {
                 msg("Conectado");
                 isBtConnected = true;
             }

@@ -29,6 +29,8 @@ import android.app.AlertDialog;
 import java.io.IOException;
 import java.util.UUID;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
@@ -50,17 +52,40 @@ public class IdentificacionActivity extends AppCompatActivity {
     //private EditText edt_QRD = (EditText)result.getContents();
     private TextView textViewQRD;
     private SimpleDraweeView ivImagen;
+    private SimpleDraweeView sdvVideo1;
     //private ImageView ivCarnet;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identificacion);
+
+        sdvVideo1=(SimpleDraweeView)findViewById(R.id.ivCarnet2);
         //new ConnectBT().execute(); //Call the class to connect
         textViewQRD = (TextView) findViewById(R.id.textViewQRD);
         //edt_QRD= (EditText)findViewById(R.id.edt_QRD);
         scan_btn = (Button) findViewById(R.id.scan_btn);
         ivImagen=(SimpleDraweeView)findViewById(R.id.ivCarnet);
         //ivCarnet=(ImageView)findViewById(R.id.ivCarnet);
+        //sdvVideo1.setImageURI(Uri.parse("res:/"+R.drawable.videito));
+
+        //String gifImageURL = "http://i.imgur.com/MJe4z21.gif";
+
+
+        /*Uri uri = Uri.parse("res:/"+R.drawable.videito);
+        DraweeController controller = Fresco.newDraweeControllerBuilder()
+                .setUri(uri)
+                .setTapToRetryEnabled(true)
+                .setAutoPlayAnimations(true)
+                .build();
+        sdvVideo1.setController(controller);*/
+        DraweeController controller =
+                Fresco.newDraweeControllerBuilder()
+                        .setUri("res:/"+R.drawable.videito)
+                        .setAutoPlayAnimations(true)
+                        .build();
+
+        sdvVideo1.setController(controller);
+
 
         final Activity activity = this;
 

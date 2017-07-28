@@ -3,20 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6cd617"
     android:orientation="vertical"
     tools:context="com.plug.beasy.IdentificacionActivity">
 
-
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/ivCarnet2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <Button
 
         android:id="@+id/scan_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="Leer codigo QR" />
+        android:text="Leer codigo QR"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/textViewQRD"
@@ -27,23 +29,8 @@
         android:layout_marginTop="75dp"
         android:text="New Text" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/scan_btn"
-        android:layout_centerHorizontal="true"
-        android:text="Tus datos son los siguientes?"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:onClick="Seguir"
-        android:text="Si, Seguir."
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+
+
 
 </RelativeLayout>

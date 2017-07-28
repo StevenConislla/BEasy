@@ -7,6 +7,12 @@
     android:background="@drawable/back_principal"
     tools:context=".MainActivity">
 
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/idVideo"/>
+
+
     <Button
         android:id="@+id/bt1"
         style="?android:attr/buttonStyleSmall"
